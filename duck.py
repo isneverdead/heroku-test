@@ -13,6 +13,8 @@ driver.get("http://www.duckduckgo.com/")
 search_box = driver.get_element_by_name("q")
 search_box.driver.clear()
 search_box.send_keys("frz_akbar instagram")
+
+print (search_box)
 #search_box.send_keys(Keys.RETURN)
 submit = driver.get_element_by_id("search_button_homepage")
 submit.click()
