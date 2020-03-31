@@ -10,7 +10,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 
 driver.get("http://www.duckduckgo.com/")
-search_box = driver.get_element_by_name("q")
+search_box = driver.get_element_by_id("search_form_input_homepage")
 search_box.driver.clear()
 search_box.send_keys("frz_akbar instagram")
 
