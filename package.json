@@ -9,6 +9,7 @@
   "author": "Fariz Akbar",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "neo-fetch": "^1.0.8",
     "nightmare": "^3.0.2",
     "selenium-webdriver": "^4.0.0-alpha.7"
