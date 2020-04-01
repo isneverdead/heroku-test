@@ -12,8 +12,8 @@ app.get('/api', async (req, res) => {
     const chrome = require('selenium-webdriver/chrome');
 
     let options = new chrome.Options();
-    options.setChromeBinaryPath(process.env.CHROME_BINARY_PATH);
-    let serviceBuilder = new chrome.ServiceBuilder(process.env.CHROME_DRIVER_PATH);
+    options.setChromeBinaryPath(process.env.GOOGLE_CHROME_BIN);
+    let serviceBuilder = new chrome.ServiceBuilder(process.env.CHROMEDRIVER_PATH);
 
     //Don't forget to add these for heroku
     options.addArguments("--headless");
