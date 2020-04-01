@@ -1,14 +1,34 @@
-const Nightmare = require('nightmare')
-const nightmare = Nightmare({ show: true })
+const webdriver = require('selenium-webdriver');
+// const chrome = require(selenium-webdriver/chrome);
 
-nightmare
-  .goto('https://duckduckgo.com')
-  .type('#search_form_input_homepage', 'github nightmare')
-  .click('#search_button_homepage')
-  .wait('#r1-0 a.result__a')
-  .evaluate(() => document.querySelector('#r1-0 a.result__a').href)
-  .end()
-  .then(console.log)
-  .catch(error => {
-    console.error('Search failed:', error)
-  })
+(async function getduck() {
+  // let driver = await new Builder().forBrowser('chrome').build();
+  let chromeOptions = await new webdriver.setChromeOptions()
+    .setChromeBinaryPath('/app/.apt/usr/bin/google-chrome')
+    .headless()
+    .addArguments('disable-dev-shm-usage')
+    .addArguments('no-sandbox');
+  
+  let driver = await new webdriver.Builder()
+    .forBrowser('chrome')
+    .execute('/app/.chromedriver/bin/chromedriver')
+    .setChromeOptions(chromeOptions)
+    .build();
+  try {
+    // Navigate to Url
+    await driver.get('https://duckduckgo.com');
+        console.log("loading done");
+        // Get all the elements available with tag name 'p'
+        await driver.findElement(By.id('search_form_input_homepage')).sendKeys('Frz_akbar Instagram', Key.ENTER);
+        // for(let e of elements) {
+        //     console.log(await e.getText());
+        // }
+    }
+    finally {
+        console.log("done");
+        // await driver.quit();
+    }
+})();
+  
+
+
